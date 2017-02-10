@@ -19,6 +19,7 @@ public class Player extends Entity{
 
 	public boolean invenOpen = false;
 	
+	public static javax.swing.JFrame inventory;
 	public PlayerUI ui = new PlayerUI(400, 400*16/9);
 	
 	public Player(int x, int y, ID id, Game g) {
@@ -29,8 +30,8 @@ public class Player extends Entity{
 		this.velX = 2;
 		this.velY = 2;
 		
-		this.name += "Player";
-		this.inventoryName = this.name+" Inventory";
+		Player.name += "Player";
+		Player.inventoryName = Player.name+" Inventory";
 		this.speed = 2;
 		this.id = ID.Player;
 		setPathing(Boolean.valueOf(false));
@@ -39,9 +40,9 @@ public class Player extends Entity{
 
 	public void openInventory()
 	{
-		this.inventory = Display.create(this.inventoryName, 400, 400/16*9, false, null, javax.swing.JFrame.DISPOSE_ON_CLOSE, (java.awt.Canvas)ui);
-		System.out.println(this.inventoryName);
-		System.out.println(name);
+		Player.inventory = Display.create(Player.inventoryName, 400, 400/16*9, false, null, javax.swing.JFrame.DISPOSE_ON_CLOSE, (java.awt.Canvas)ui);
+		System.out.println(Player.inventoryName);
+		System.out.println(Player.name);
 		this.inventory.addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent we)

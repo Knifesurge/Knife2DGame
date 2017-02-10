@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JFrame;
 
@@ -59,12 +60,13 @@ public class Display {
 	
 	public static void dispose(String name)
 	{
+		System.out.println("Dispose of JFrame "+name);
 		for(int i=0;i<windows.size();i++)
 		{
-			if(windows.get(i).getName().equals(name))
+			if(windows.get(i).getTitle().equals(name))
 			{
-				windows.get(i).dispose();
-				windows.get(i).remove(windows.get(i));
+				System.out.println(i +" "+ windows.get(i).getTitle());
+				windows.remove(windows.get(i));
 			}
 		}
 	}

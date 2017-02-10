@@ -17,6 +17,7 @@ public abstract class Structure extends GameObject{
 	public boolean isActive = false;
 	public boolean isCrafter = false;
 	
+	public javax.swing.JFrame inventory;
 	public StructureUI ui = new StructureUI(400, 400/16*9);
 	
 	public Structure(int x, int y, ID id, Game g) {

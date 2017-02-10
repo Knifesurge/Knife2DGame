@@ -11,7 +11,7 @@ public class HUD extends GameObject{
 		
 		this.id = ID.UI;
 		
-		this.name = "HUD";
+		HUD.name = "HUD";
 		this.width = Display.WIDTH;
 		this.height = Display.HEIGHT;
 	}

@@ -23,11 +23,9 @@ public abstract class GameObject {
 	public Pathfinder finder = null;
 	public FileHandler icon = new FileHandler();
 	public BufferedImage image = null;
-	public String name;
+	public static String name;
 	protected static String inventoryName;
 	protected Game game;
-	
-	public javax.swing.JFrame inventory;
 	
 	public abstract void tick();
 	
