@@ -60,12 +60,11 @@ public class Display {
 	
 	public static void dispose(String name)
 	{
-		System.out.println("Dispose of JFrame "+name);
+		System.out.println(">>Dispose of JFrame "+name);
 		for(int i=0;i<windows.size();i++)
 		{
 			if(windows.get(i).getTitle().equals(name))
 			{
-				System.out.println(i +" "+ windows.get(i).getTitle());
 				windows.remove(windows.get(i));
 			}
 		}

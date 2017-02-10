@@ -47,7 +47,7 @@ public class Player extends Entity{
 		{
 			public void windowClosing(WindowEvent we)
 			{
-				System.out.println("Window closing!");
+				System.out.println(">>Window closing!");
 				invenOpen = false;
 				Display.dispose(Player.inventoryName);
 			}

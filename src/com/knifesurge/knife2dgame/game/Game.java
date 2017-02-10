@@ -65,12 +65,12 @@ public class Game extends Canvas implements Runnable{
 	{
 		System.out.println("Init Start");
 		
-		display = Display.create("Knife 2D Game", WIDTH, HEIGHT, false, null, javax.swing.JFrame.EXIT_ON_CLOSE, this);
+		display = Display.create(Display.NAME, WIDTH, HEIGHT, false, null, javax.swing.JFrame.EXIT_ON_CLOSE, this);
 		IH = new InputHandler(this);
 		handler = new Handler();
+		hud = new HUD(0, 0, ID.UI, this);
 		player = new Player(WIDTH/2, HEIGHT/2, ID.Player, this);
 		basicFactory = new BasicFactory(WIDTH/2 - 32, HEIGHT/2 - 32, ID.Structure, this);
-		hud = new HUD(0, 0, ID.UI, this);
 		
 		handler.addObject(basicFactory);
 		handler.addObject(player);

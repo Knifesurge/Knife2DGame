@@ -34,7 +34,7 @@ public abstract class Structure extends GameObject{
 		{
 			public void windowClosing(WindowEvent we)
 			{
-				System.out.println("Window closing!");
+				System.out.println(">>sWindow closing!");
 				isActive = false;
 				Display.dispose(Structure.inventoryName);
 			}
