@@ -6,8 +6,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
-import javax.swing.JFrame;
-
 import com.knifesurge.knife2dgame.entities.Player;
 import com.knifesurge.knife2dgame.handlers.Handler;
 import com.knifesurge.knife2dgame.handlers.InputHandler;

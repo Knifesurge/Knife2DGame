@@ -30,8 +30,8 @@ public class Player extends Entity{
 		this.velX = 2;
 		this.velY = 2;
 		
-		Player.name += "Player";
-		Player.inventoryName = Player.name+" Inventory";
+		this.name += "Player";
+		this.inventoryName = this.name+" Inventory";
 		this.speed = 2;
 		this.id = ID.Player;
 		setPathing(Boolean.valueOf(false));
@@ -40,18 +40,31 @@ public class Player extends Entity{
 
 	public void openInventory()
 	{
-		Player.inventory = Display.create(Player.inventoryName, 400, 400/16*9, false, null, javax.swing.JFrame.DISPOSE_ON_CLOSE, (java.awt.Canvas)ui);
-		System.out.println(Player.inventoryName);
-		System.out.println(Player.name);
-		this.inventory.addWindowListener(new WindowAdapter()
+		Player.inventory = Display.create(this.inventoryName, 400, 400/16*9, false, null, javax.swing.JFrame.DISPOSE_ON_CLOSE, this.game);
+		System.out.println(this.inventoryName);
+		System.out.println(this.name);
+		inventory.add(ui);
+		Player.inventory.addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent we)
 			{
-				System.out.println(">>Window closing!");
+				System.out.println(">> Window closing!");
 				invenOpen = false;
-				Display.dispose(Player.inventoryName);
 			}
 		});
+	}
+	
+	public void closeInventory()
+	{
+		Display.dispose(this.inventoryName);
+	}
+	
+	public void stop()
+	{
+		above = false;
+		below = false;
+		left = false;
+		right = false;
 	}
 	
 	protected void entityTick()
@@ -67,7 +80,7 @@ public class Player extends Entity{
 		dx = 0;
 		dy = 0;
 	}
-
+	
 	protected void entityRender(Graphics g)
 	{
 		g.setColor(this.id.getColor());

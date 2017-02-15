@@ -17,7 +17,7 @@ public abstract class Structure extends GameObject{
 	public boolean isActive = false;
 	public boolean isCrafter = false;
 	
-	public javax.swing.JFrame inventory;
+	public static javax.swing.JFrame inventory;
 	public StructureUI ui = new StructureUI(400, 400/16*9);
 	
 	public Structure(int x, int y, ID id, Game g) {
@@ -29,21 +29,21 @@ public abstract class Structure extends GameObject{
 
 	public void openInventory()
 	{
-		this.inventory = Display.create(this.inventoryName, 400, 400/16*9, false, null, javax.swing.JFrame.DISPOSE_ON_CLOSE, (java.awt.Canvas)ui);
-		this.inventory.addWindowListener(new WindowAdapter()
+		Structure.inventory = Display.create(this.inventoryName, 400, 400/16*9, false, null, javax.swing.JFrame.DISPOSE_ON_CLOSE, this.game);
+		Structure.inventory.addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent we)
 			{
-				System.out.println(">>sWindow closing!");
+				System.out.println(">> Window closing!");
 				isActive = false;
-				Display.dispose(Structure.inventoryName);
+				closeInventory();
 			}
 		});
 	}
 	
 	public void closeInventory()
 	{
-		
+		Display.dispose(this.inventoryName);
 	}
 	
 	public void setActive(boolean b)

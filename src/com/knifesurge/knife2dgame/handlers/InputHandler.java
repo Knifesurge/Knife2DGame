@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import com.knifesurge.knife2dgame.game.Display;
+import com.knifesurge.knife2dgame.entities.Player;
 import com.knifesurge.knife2dgame.game.Game;
 import com.knifesurge.knife2dgame.game.GameObject;
 import com.knifesurge.knife2dgame.game.ID;
@@ -240,7 +240,19 @@ public class InputHandler implements KeyListener, MouseListener, MouseMotionList
 		}
 		if(keyCode == KEY_E)
 		{
-			game.player.openInventory();
+			Player player = game.player;
+			player.stop();
+			if(player.invenOpen)
+			{
+				Player.inventory.requestFocus();
+				Player.inventory.toFront();
+				Player.inventory.repaint();
+			}
+			else if(!player.invenOpen)
+			{
+				player.invenOpen = Boolean.valueOf(true);
+				player.openInventory();
+			}
 		}
 	}
 

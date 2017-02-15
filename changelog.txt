@@ -1,2 +1,4 @@
 10/02/17:
 	- Fixed JFrames not being removed from the ArrayList
+15/02/17:
+	- Fixed the inventory window title not being the right inventory name

@@ -23,8 +23,8 @@ public abstract class GameObject {
 	public Pathfinder finder = null;
 	public FileHandler icon = new FileHandler();
 	public BufferedImage image = null;
-	public static String name;
-	protected static String inventoryName;
+	public String name;
+	protected String inventoryName;
 	protected Game game;
 	
 	public abstract void tick();
